@@ -1,0 +1,30 @@
+Webdriver driver = new ChromeDriver();
+driver.manage().window().maximize();
+baseUrl=https//:www.example.com;
+driver.get(baseUrl);
+
+driver.findElement(By.id("username")).sendKeys("Admin");
+driver.findElement(By.id("password")).sendKeys("Admin123");
+driver.findElement(By.id("submitBtn")).click();
+---------------------------------------------------------------
+Alert alert = driver.switchTo().alert
+alert.accept();
+alert.decline();
+alert.getText();
+alert.sendKeys("TEXT");
+---------------------------------------------------------------
+Select dropDown = new Select(driver.findElement(By.id("drpdwnID")));
+dropDown.selectByVisibileText("options");
+dropDown.selectByValue("values");
+dropDown.selectByIndex(2);
+---------------------------------------------------------------
+Actions action = new Actions(driver);
+WebElement element = driver.findElement(By.id("eleID"));
+action.moveToElement(element).perform();
+action.doubleClick(element).perform();
+---------------------------------------------------------------
+String mainWindow = driver.getWindowHandle();
+Set<String> allWindows = driver.getWindowHandles();
+for(String handle:allWindows){
+	driver.switchTo().window(handle);
+}
